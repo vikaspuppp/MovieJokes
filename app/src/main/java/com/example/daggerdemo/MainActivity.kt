@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity(), ApiCallBacks, JokeMovieAdapter.Adapter
         manager.getMovie()
     }
 
+    /*Set adapter at demo mode then notify data when data is available from server*/
     private fun setAdapter() {
         rvJokeMovie.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvJokeMovie.adapter = adapter
