@@ -1,8 +1,9 @@
 package com.example.daggerdemo.model
 
 import com.google.gson.annotations.SerializedName
+import javax.inject.Inject
 
-data class MovieModel(
+data class MovieModel @Inject constructor(
     @SerializedName("name") val name: String,
     @SerializedName("realname") val realName: String,
     @SerializedName("team") val team: String,

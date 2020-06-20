@@ -1,4 +1,4 @@
-package com.example.daggerdemo
+package com.example.daggerdemo.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,31 +9,39 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.daggerdemo.R
 import com.example.daggerdemo.adapter.JokeMovieAdapter
 import com.example.daggerdemo.callback.ApiCallBacks
+import com.example.daggerdemo.dagger.component.DaggerApiManagerComponent
+import com.example.daggerdemo.dagger.module.ApiCallbacksModule
 import com.example.daggerdemo.model.DataTransfer
 import com.example.daggerdemo.model.JokeModel
 import com.example.daggerdemo.network.ApiManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), ApiCallBacks, JokeMovieAdapter.AdapterListener {
 
     lateinit var rvJokeMovie: RecyclerView
-    var dataList: ArrayList<Any> = arrayListOf()
+    @Inject
+    lateinit var dataList: ArrayList<Any>
     var adapter: JokeMovieAdapter = JokeMovieAdapter(this, dataList, this)
+    @Inject
+    lateinit var manager: ApiManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        DaggerApiManagerComponent.builder().apiCallbacksModule(ApiCallbacksModule(this)).build()
+            .inject(this)
         init()
         setAdapter()
         hitApiCall()
     }
 
     private fun hitApiCall() {
-        val manager = ApiManager(this)
         manager.getJokes()
         manager.getMovie()
     }

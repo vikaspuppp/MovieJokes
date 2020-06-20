@@ -7,7 +7,7 @@ import com.example.daggerdemo.model.MovieModel
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiManager(val apiCallBacks: ApiCallBacks) {
+class ApiManager(var apiCallBacks: ApiCallBacks) {
     val jokeRetrofit: Retrofit
     val jokeCall: Call<List<JokeModel>>
     val movieRetrofit: Retrofit

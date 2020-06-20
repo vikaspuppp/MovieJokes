@@ -14,10 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MovieDetailActivity"></activity>
-        <activity android:name=".JokeDetailActivity" />
+        <activity android:name=".view.MovieDetailActivity"></activity>
+        <activity android:name=".view.JokeDetailActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

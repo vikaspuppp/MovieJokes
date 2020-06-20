@@ -1,7 +1,8 @@
-package com.example.daggerdemo
+package com.example.daggerdemo.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.daggerdemo.R
 import com.example.daggerdemo.model.DataTransfer
 import com.example.daggerdemo.model.JokeModel
 import kotlinx.android.synthetic.main.activity_joke_detail.*

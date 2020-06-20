@@ -1,13 +1,13 @@
-package com.example.daggerdemo
+package com.example.daggerdemo.view
 
 import android.annotation.TargetApi
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
-import android.text.method.MovementMethod
 import android.text.method.ScrollingMovementMethod
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.daggerdemo.R
 import com.example.daggerdemo.model.DataTransfer
 import com.example.daggerdemo.model.MovieModel
 import com.squareup.picasso.Picasso
