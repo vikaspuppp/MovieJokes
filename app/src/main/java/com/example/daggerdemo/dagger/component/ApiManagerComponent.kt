@@ -5,8 +5,8 @@ import com.example.daggerdemo.dagger.module.ApiManagerModule
 import com.example.daggerdemo.view.MainActivity
 import dagger.Component
 
-@Component(modules = [ApiManagerModule::class, ApiCallbacksModule::class])
+@Component(modules = [ApiManagerModule::class])
 interface ApiManagerComponent {
 
-    fun inject(activity: MainActivity)
+
 }

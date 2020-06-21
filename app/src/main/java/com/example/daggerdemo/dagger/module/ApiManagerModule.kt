@@ -6,11 +6,11 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class ApiManagerModule {
+class ApiManagerModule constructor(var apiCallBacks: ApiCallBacks) {
 
     @Provides
-    fun provideApiManager(callbacks: ApiCallBacks): ApiManager = ApiManager(callbacks)
+    fun provideApiManager(): ApiManager = ApiManager(apiCallBacks)
 
     @Provides
-    fun provideDataList(): ArrayList<Any> = arrayListOf()
+    fun provideApiCallBacks(): ApiCallBacks = apiCallBacks
 }

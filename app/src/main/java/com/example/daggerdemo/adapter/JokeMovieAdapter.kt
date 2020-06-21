@@ -12,8 +12,9 @@ import com.example.daggerdemo.adapter.JokeMovieAdapter.Holder
 import com.example.daggerdemo.model.JokeModel
 import com.example.daggerdemo.model.MovieModel
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
-class JokeMovieAdapter(
+class JokeMovieAdapter constructor(
     private val context: Context,
     private val list: List<Any>,
     private val listener: AdapterListener

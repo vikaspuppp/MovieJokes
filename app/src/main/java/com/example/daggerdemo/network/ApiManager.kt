@@ -5,7 +5,9 @@ import com.example.daggerdemo.callback.ApiCallBacks
 import com.example.daggerdemo.model.JokeModel
 import com.example.daggerdemo.model.MovieModel
 import retrofit2.*
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 class ApiManager(var apiCallBacks: ApiCallBacks) {
     val jokeRetrofit: Retrofit
@@ -14,7 +16,7 @@ class ApiManager(var apiCallBacks: ApiCallBacks) {
     val movieCall: Call<List<MovieModel>>
 
     init {
-        jokeRetrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
+        jokeRetrofit = Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create())
             .baseUrl(ApiUrl.JOKE_BASE_URL).build()
         jokeCall = jokeRetrofit.create<JokeApi>().getJoke()
         movieRetrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
